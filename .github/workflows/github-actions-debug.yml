@@ -23,29 +23,34 @@ jobs:
   lint:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v2
       - run: ./gradlew lintDebug
     needs: [ setup ]
 
   detekt:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v2
       - run: ./gradlew detektDebug
     needs: [ setup ]
 
   ktlint:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v2
       - run: ./gradlew ktlintCheck
     needs: [ setup ]
 
   build:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v2
       - run: ./gradlew assembleDebug
     needs: [ lint, detekt, ktlint ]
 
   test:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v2
       - run: ./gradlew testDebug
     needs: [ lint, detekt, ktlint, build ]
