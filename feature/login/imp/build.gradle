@@ -1,0 +1,16 @@
+import com.vpopov.movienow.buildsrc.Libs
+
+apply from: rootProject.file("gradle/common-android-library.gradle")
+
+apply plugin: "kotlin-kapt"
+
+dependencies {
+    api project(":feature:login:api")
+    implementation project(":core:di")
+    implementation project(":core:network:api")
+    implementation project(":core:navigation")
+    implementation Libs.AndroidX.Navigation.compose
+    implementation Libs.Hilt.hilt
+    implementation Libs.Hilt.kapt
+    implementation Libs.retrofit
+}

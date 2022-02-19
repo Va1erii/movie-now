@@ -1,0 +1,31 @@
+[versions]
+kotlin = "1.6.10"
+coroutines = "1.6.0"
+compose = "1.1.0"
+dagger = "2.41"
+
+[libraries]
+# Coroutine
+coroutinesCore = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "coroutines" }
+coroutinesAndroid = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-android", version.ref = "coroutines" }
+
+# Compose
+composeMaterial = { module = "androidx.compose.material:material", version.ref = "compose" }
+composeTooling = { module = "androidx.compose.ui:ui-tooling", version.ref = "compose" }
+
+# AndroidX
+appcompat = { module = "androidx.appcompat:appcompat", version = "1.4.1" }
+
+# Navigation
+composeNavigation = { module = "androidx.navigation:navigation-compose", version = "2.4.1" }
+
+# Dagger
+dagger = { module = "com.google.dagger:dagger", version.ref = "dagger" }
+daggerKapt = { module = "com.google.dagger:dagger-compiler", version.ref = "dagger" }
+
+# Retrofit
+retrofit = { module = "com.squareup.retrofit2:retrofit", version = "2.9.0" }
+
+# Gradle
+androidGradle = { module = "com.android.tools.build:gradle", version = "7.1.1" }
+kotlinGradle = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "kotlin" }
