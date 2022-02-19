@@ -1,4 +1,4 @@
-name: Debug variant
+name: Build Verification Test. Debug Variant
 on:
   push:
     branches:
@@ -7,7 +7,7 @@ on:
       - 'develop/**'
 
 jobs:
-  debug:
+  Build-Verification-Test-Debug:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
