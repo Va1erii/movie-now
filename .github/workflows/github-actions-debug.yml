@@ -7,7 +7,7 @@ on:
       - 'develop/**'
 
 jobs:
-  setup-android-tools:
+  debug:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -22,56 +22,19 @@ jobs:
       - name: Setup Android SDK
         uses: android-actions/setup-android@v2
 
-  prepare-gradle:
-    runs-on: ubuntu-latest
-    steps:
       - uses: actions/checkout@v2
-        with:
-          cache: gradle
-      - run: ./gradlew
-    needs: [ setup-android-tools ]
 
-  lint:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-        with:
-          cache: gradle
-      - run: ./gradlew lintDebug
-    needs: [ prepare-gradle ]
+      - name: Lint
+        run: ./gradlew lintDebug
 
-  detekt:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-        with:
-          cache: gradle
-      - run: ./gradlew detektDebug
-    needs: [ prepare-gradle ]
+      - name: Detekt
+        run: ./gradlew detektDebug
 
-  ktlint:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-        with:
-          cache: gradle
-      - run: ./gradlew ktlintCheck
-    needs: [ prepare-gradle ]
+      - name: ktlint
+        run: ./gradlew ktlintCheck
 
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-        with:
-          cache: gradle
-      - run: ./gradlew assembleDebug
-    needs: [ lint, detekt, ktlint ]
+      - name: Build
+        run: ./gradlew assembleDebug
 
-  test:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-        with:
-          cache: gradle
-      - run: ./gradlew testDebug
-    needs: [ build ]
+      - name: Test
+        run: ./gradlew testDebug
