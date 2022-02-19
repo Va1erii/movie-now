@@ -25,7 +25,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - run: ./gradlew
-    needs: [ setup ]
+    needs: [ setup-android-tools ]
 
   lint:
     runs-on: ubuntu-latest
