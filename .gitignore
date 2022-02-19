@@ -52,3 +52,6 @@ google-services.json
 
 # Reports
 reports/
+
+# Build cache
+build-cache/

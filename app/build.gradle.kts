@@ -5,6 +5,7 @@ plugins {
     id("base-android-convention")
     id("base-compose-convention")
     id("base-kotlin-convention")
+    id("lint-convention")
 }
 
 android {
@@ -23,7 +24,7 @@ android {
 
     buildTypes {
         release {
-            isMinifyEnabled = false
+            isMinifyEnabled = true
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 file("proguard-rules.pro")
@@ -46,9 +47,9 @@ dependencies {
     implementation(libs.composeNavigation)
     implementation(libs.dagger)
     kapt(libs.daggerKapt)
-    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.4.0")
+    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.4.1")
     implementation("androidx.activity:activity-compose:1.4.0")
-    testImplementation("junit:junit:4.+")
+    testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.3")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.4.0")
 }

@@ -11,22 +11,21 @@ allprojects {
     }
     tasks.withType<Detekt>().configureEach {
         jvmTarget = "1.8"
-
         reports {
-            val projectName = getProjectName()
+            val reportName = prepareReportName()
             html {
                 required.set(true)
-                outputLocation.set { File("$reportsFolder/${projectName}-detekt.html") }
+                outputLocation.set { File("$reportsFolder/${reportName}.html") }
             }
             xml {
                 required.set(true)
-                outputLocation.set { File("$reportsFolder/${projectName}-detekt.xml") }
+                outputLocation.set { File("$reportsFolder/${reportName}.xml") }
             }
         }
     }
 }
 
-fun Project.getProjectName(): String {
+fun Project.prepareReportName(): String {
     val prefix = parent?.name?.takeIf { it != "MovieNow" }?.plus("-") ?: ""
-    return "$prefix${project.name}"
+    return "$prefix${project.name}-detekt"
 }

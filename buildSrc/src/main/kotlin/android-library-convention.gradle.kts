@@ -3,4 +3,5 @@ plugins {
     id("base-android-convention")
     id("kotlin-android")
     id("base-kotlin-convention")
+    id("lint-convention")
 }
