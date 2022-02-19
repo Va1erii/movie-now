@@ -1,4 +1,4 @@
-name: Static Code Analysis
+name: Debug variant
 on:
   push:
     branches:
@@ -30,29 +30,34 @@ jobs:
   lint:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v2
       - run: ./gradlew lintDebug
     needs: [ prepare-gradle ]
 
   detekt:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v2
       - run: ./gradlew detektDebug
     needs: [ prepare-gradle ]
 
   ktlint:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v2
       - run: ./gradlew ktlintCheck
     needs: [ prepare-gradle ]
 
   build:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v2
       - run: ./gradlew assembleDebug
     needs: [ lint, detekt, ktlint ]
 
   test:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v2
       - run: ./gradlew testDebug
     needs: [ build ]
