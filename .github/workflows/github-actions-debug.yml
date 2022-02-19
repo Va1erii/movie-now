@@ -11,18 +11,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-        with:
-          path: ./build/
 
       - name: Set up JDK 11
-        uses: actions/setup-java@v2
+        uses: actions/setup-java@v1
         with:
           java-version: 11
-          distribution: 'adopt'
 
       - name: Setup Android SDK
-        id: 'setup-android'
-        uses: ./build/
+        uses: android-actions/setup-android@v2
 
   lint:
     runs-on: ubuntu-latest
