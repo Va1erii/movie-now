@@ -1,4 +1,4 @@
-name: Build Verification Test. Debug Variant
+name: CI/CD
 on:
   pull_request:
     types: [ opened, reopened ]
