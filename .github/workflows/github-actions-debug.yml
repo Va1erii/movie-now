@@ -26,52 +26,52 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - run: ./gradlew
         with:
           cache: gradle
+      - run: ./gradlew
     needs: [ setup-android-tools ]
 
   lint:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - run: ./gradlew lintDebug
         with:
           cache: gradle
+      - run: ./gradlew lintDebug
     needs: [ prepare-gradle ]
 
   detekt:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - run: ./gradlew detektDebug
         with:
           cache: gradle
+      - run: ./gradlew detektDebug
     needs: [ prepare-gradle ]
 
   ktlint:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - run: ./gradlew ktlintCheck
         with:
           cache: gradle
+      - run: ./gradlew ktlintCheck
     needs: [ prepare-gradle ]
 
   build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - run: ./gradlew assembleDebug
         with:
           cache: gradle
+      - run: ./gradlew assembleDebug
     needs: [ lint, detekt, ktlint ]
 
   test:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - run: ./gradlew testDebug
         with:
           cache: gradle
+      - run: ./gradlew testDebug
     needs: [ build ]
