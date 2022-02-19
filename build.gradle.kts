@@ -1,3 +1,8 @@
+plugins {
+    id("detekt-convention")
+    id("ktlint-convention")
+}
+
 allprojects {
     extra["minSdkVersion"] = 23
     extra["compileSdkVersion"] = 32
@@ -6,4 +11,5 @@ allprojects {
 
 tasks.register("clean", Delete::class) {
     delete(rootProject.buildDir)
+    delete("${rootProject.projectDir}/reports")
 }

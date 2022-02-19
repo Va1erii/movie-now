@@ -1,7 +1,6 @@
 plugins {
     id("android-library-convention")
     id("kotlin-kapt")
-
 }
 
 dependencies {

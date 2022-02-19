@@ -26,6 +26,12 @@ daggerKapt = { module = "com.google.dagger:dagger-compiler", version.ref = "dagg
 # Retrofit
 retrofit = { module = "com.squareup.retrofit2:retrofit", version = "2.9.0" }
 
+# Detekt
+detekt = { module = "io.gitlab.arturbosch.detekt:detekt-gradle-plugin", version = "1.19.0" }
+
+# ktlint
+ktlint = { module = "org.jlleitschuh.gradle.ktlint:org.jlleitschuh.gradle.ktlint.gradle.plugin", version = "10.2.1" }
+
 # Gradle
 androidGradle = { module = "com.android.tools.build:gradle", version = "7.1.1" }
 kotlinGradle = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "kotlin" }

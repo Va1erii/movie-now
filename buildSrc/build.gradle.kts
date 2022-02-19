@@ -12,4 +12,6 @@ dependencies {
     implementation(libs.kotlinGradle)
     implementation(gradleApi())
     implementation(localGroovy())
+    implementation(libs.detekt)
+    implementation(libs.ktlint)
 }

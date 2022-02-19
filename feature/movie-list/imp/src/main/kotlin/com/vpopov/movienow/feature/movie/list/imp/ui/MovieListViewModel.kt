@@ -10,6 +10,12 @@ internal class MovieListViewModel(
     private val savedStateHandle: SavedStateHandle
 ) : ViewModel() {
 
+    init {
+        interactor.getPopularMovies()
+        val args: String? = savedStateHandle[""]
+        args
+    }
+
     override fun onCleared() {
         FeatureMovieListComponentHolder.reset()
     }
