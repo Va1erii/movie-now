@@ -1,10 +1,5 @@
 name: CI/CD
 on:
-  pull_request:
-    types: [ opened, reopened ]
-    branches:
-      - 'main'
-      - 'release/**'
   push:
     branches:
       - 'main'
