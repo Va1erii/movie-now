@@ -27,6 +27,8 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - run: ./gradlew
+        with:
+          cache: gradle
     needs: [ setup-android-tools ]
 
   lint:
@@ -34,6 +36,8 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - run: ./gradlew lintDebug
+        with:
+          cache: gradle
     needs: [ prepare-gradle ]
 
   detekt:
@@ -41,6 +45,8 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - run: ./gradlew detektDebug
+        with:
+          cache: gradle
     needs: [ prepare-gradle ]
 
   ktlint:
@@ -48,6 +54,8 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - run: ./gradlew ktlintCheck
+        with:
+          cache: gradle
     needs: [ prepare-gradle ]
 
   build:
@@ -55,6 +63,8 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - run: ./gradlew assembleDebug
+        with:
+          cache: gradle
     needs: [ lint, detekt, ktlint ]
 
   test:
@@ -62,4 +72,6 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - run: ./gradlew testDebug
+        with:
+          cache: gradle
     needs: [ build ]
