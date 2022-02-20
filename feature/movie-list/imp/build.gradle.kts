@@ -4,6 +4,12 @@ plugins {
     id("base-compose-convention")
 }
 
+android {
+    kapt {
+        correctErrorTypes = true
+    }
+}
+
 dependencies {
     api(project(":feature:movie-list:api"))
     implementation(project(":core:di"))

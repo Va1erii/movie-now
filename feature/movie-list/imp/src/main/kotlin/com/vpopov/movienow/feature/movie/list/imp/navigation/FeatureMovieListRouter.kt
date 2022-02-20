@@ -35,7 +35,7 @@ internal class FeatureMovieListRouter : Router {
                     }
                 }
             )
-            MovieListScreen()
+//            MovieListScreen()
         }
     }
 }
